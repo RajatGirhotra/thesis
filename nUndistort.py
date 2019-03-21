@@ -13,6 +13,10 @@ if __name__ == '__main__':
     parser.add_argument('out', help='output directory')
     args = parser.parse_args()
 
+    outdir = args.out
+    if outdir and not os.path.isdir(outdir):
+        os.mkdir(outdir)
+
     with open(args.calibration) as fr:
         c = yaml.load(fr)
 
